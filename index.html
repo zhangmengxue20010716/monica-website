@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monica · monicamarketing.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F1;
+    --terra: #C9714A;
+    --rose: #D4A5A0;
+    --beige: #E8DDD0;
+    --dark: #2C2420;
+    --mid: #7A5C55;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(250,246,241,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--beige);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+    font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  .nav-links a { color: var(--mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--terra); }
+
+  .lang-toggle {
+    background: var(--terra); color: white;
+    border: none; padding: 0.4rem 1.2rem; border-radius: 20px;
+    font-size: 0.8rem; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.05em; transition: opacity 0.2s;
+  }
+  .lang-toggle:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, #E8C4B8 0%, #FAF6F1 55%),
+                radial-gradient(ellipse at 20% 80%, #D4C4BC 0%, transparent 50%);
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 600px; }
+
+  .hero-eyebrow {
+    font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--terra); margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 1.05;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+
+  .hero-name em { font-style: italic; color: var(--terra); }
+
+  .hero-tagline {
+    font-size: 1rem; color: var(--mid);
+    line-height: 1.7; margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: inline-flex; gap: 1rem; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--terra); color: white;
+    padding: 0.8rem 2rem; border-radius: 30px;
+    text-decoration: none; font-size: 0.9rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,113,74,0.35); }
+
+  .btn-outline {
+    border: 1.5px solid var(--terra); color: var(--terra);
+    padding: 0.8rem 2rem; border-radius: 30px;
+    text-decoration: none; font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .btn-outline:hover { background: var(--terra); color: white; }
+
+  .hero-float {
+    position: absolute; right: 6rem; top: 50%; transform: translateY(-50%);
+    width: 320px; height: 420px;
+    border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
+    background: linear-gradient(135deg, var(--beige), var(--rose));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; color: white;
+    opacity: 0.85;
+    box-shadow: 0 30px 80px rgba(201,113,74,0.2);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--terra); margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--dark); margin-bottom: 1rem; line-height: 1.2;
+  }
+
+  /* ABOUT */
+  .about { background: var(--beige); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto;
+  }
+
+  .about-photo {
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, var(--rose), var(--terra));
+    border-radius: 40% 60% 55% 45% / 45% 50% 50% 55%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; color: white; opacity: 0.7;
+  }
+
+  .about-text p {
+    color: var(--mid); line-height: 1.85; margin-bottom: 1.2rem; font-size: 0.95rem;
+  }
+
+  .about-stats {
+    display: flex; gap: 2.5rem; margin-top: 2rem; flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; color: var(--terra); display: block;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--mid); letter-spacing: 0.05em; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem; max-width: 1100px; margin: 3rem auto 0;
+  }
+
+  .service-card {
+    background: white; border-radius: 16px; padding: 2rem;
+    border: 1px solid var(--beige);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--terra), var(--rose));
+  }
+
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(44,36,32,0.1); }
+
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .service-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 0.8rem; }
+  .service-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+
+  /* PORTFOLIO */
+  .portfolio { background: var(--cream); }
+
+  .portfolio-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; max-width: 1100px; margin: 3rem auto 0;
+  }
+
+  .portfolio-card {
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--beige);
+    transition: transform 0.2s;
+  }
+
+  .portfolio-card:hover { transform: translateY(-4px); }
+
+  .portfolio-img {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+  }
+
+  .portfolio-img.a { background: linear-gradient(135deg, #E8C4B8, #C9714A); }
+  .portfolio-img.b { background: linear-gradient(135deg, #D4C4BC, #D4A5A0); }
+  .portfolio-img.c { background: linear-gradient(135deg, #C4B5B0, #9E7870); }
+
+  .portfolio-body { padding: 1.5rem; background: white; }
+  .portfolio-tag {
+    display: inline-block; background: var(--beige);
+    color: var(--terra); font-size: 0.7rem; padding: 0.2rem 0.7rem;
+    border-radius: 20px; margin-bottom: 0.6rem; letter-spacing: 0.05em;
+  }
+  .portfolio-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.5rem; }
+  .portfolio-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+
+  /* CONTACT */
+  .contact { background: var(--dark); color: white; text-align: center; }
+
+  .contact .section-label { color: var(--rose); }
+  .contact .section-title { color: white; }
+  .contact-sub { color: rgba(255,255,255,0.55); margin: 1rem 0 2.5rem; font-size: 0.95rem; }
+
+  .contact-form {
+    max-width: 500px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .contact-form input, .contact-form textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white; padding: 0.9rem 1.2rem;
+    border-radius: 10px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--rose); }
+  .contact-form textarea { height: 130px; resize: none; }
+
+  .contact-form button {
+    background: var(--terra); color: white;
+    border: none; padding: 0.9rem; border-radius: 30px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.05em;
+  }
+  .contact-form button:hover { opacity: 0.88; }
+
+  .social-links {
+    display: flex; gap: 1.5rem; justify-content: center;
+    margin-top: 3rem; flex-wrap: wrap;
+  }
+
+  .social-link {
+    color: rgba(255,255,255,0.5); font-size: 0.8rem;
+    text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.15); padding: 0.4rem 1rem;
+    border-radius: 20px; transition: color 0.2s, border-color 0.2s;
+  }
+  .social-link:hover { color: var(--rose); border-color: var(--rose); }
+
+  /* FOOTER */
+  footer {
+    background: #1A100D; color: rgba(255,255,255,0.3);
+    text-align: center; padding: 1.5rem;
+    font-size: 0.75rem; letter-spacing: 0.05em;
+  }
+
+  /* SCROLL FADE */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    .hero-float { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Monica · 莫妮卡</div>
+  <ul class="nav-links">
+    <li><a href="#about" data-en="About" data-cn="关于我">About</a></li>
+    <li><a href="#services" data-en="Services" data-cn="服务">Services</a></li>
+    <li><a href="#work" data-en="Work" data-cn="案例">Work</a></li>
+    <li><a href="#contact" data-en="Contact" data-cn="联系">Contact</a></li>
+  </ul>
+  <button class="lang-toggle" onclick="toggleLang()">中文</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">monicamarketing.com</p>
+    <h1 class="hero-name" data-en="Hi, I'm<br><em>Monica</em>" data-cn="你好，我是<br><em>Monica</em>">Hi, I'm<br><em>Monica</em></h1>
+    <p class="hero-tagline" data-en="China Marketing Consultant · Content Creator · World Traveler" data-cn="小红书营销顾问 · 内容创作者 · 旅行者">China Marketing Consultant · Content Creator · World Traveler</p>
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary" data-en="View Services" data-cn="查看服务">View Services</a>
+      <a href="#contact" class="btn-outline" data-en="Let's Talk" data-cn="联系我">Let's Talk</a>
+    </div>
+  </div>
+  <div class="hero-float" style="background:none; padding:0; overflow:hidden;">
+    <img src="photo_hero.jpg" alt="Monica" style="width:100%; height:100%; object-fit:cover; border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-photo" style="background:none; padding:0; overflow:hidden;">
+      <img src="photo_about.jpg" alt="Monica" style="width:100%; height:100%; object-fit:cover; border-radius: 40% 60% 55% 45% / 45% 50% 50% 55%;">
+    </div>
+    <div class="about-text fade-in">
+      <p class="section-label" data-en="About Me" data-cn="关于我">About Me</p>
+      <h2 class="section-title" data-en="Shanghai-based creator & China marketing expert" data-cn="驻上海的内容创作者与中国营销专家">Shanghai-based creator & China marketing expert</h2>
+      <p data-en="I'm Monica — a digital entrepreneur and content creator based in Shanghai with a Master's degree from Tongji University. I've worked at TikTok and ByteDance, and I specialize in helping overseas brands build their presence on Chinese platforms like Xiaohongshu (RED)." data-cn="我是Monica，驻上海的数字创业者和内容创作者，同济大学教育学硕士，曾在TikTok和字节跳动实习。专注于帮助海外品牌在小红书等中国社交媒体平台上建立影响力。">I'm Monica — a digital entrepreneur and content creator based in Shanghai with a Master's degree from Tongji University. I've worked at TikTok and ByteDance, and I specialize in helping overseas brands build their presence on Chinese platforms like Xiaohongshu (RED).</p>
+      <p data-en="I speak Chinese, English, and Spanish, have traveled to 23+ countries, and bring a unique cross-cultural perspective to every project I work on." data-cn="我会中文、英文和西班牙语，走过23个以上的国家，为每一个项目带来独特的跨文化视角。">I speak Chinese, English, and Spanish, have traveled to 23+ countries, and bring a unique cross-cultural perspective to every project I work on.</p>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num">23+</span><span class="stat-label" data-en="Countries" data-cn="个国家">Countries</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label" data-en="Languages" data-cn="门语言">Languages</span></div>
+        <div class="stat"><span class="stat-num">20K+</span><span class="stat-label" data-en="Followers" data-cn="粉丝">Followers</span></div>
+        <div class="stat"><span class="stat-num">4+</span><span class="stat-label" data-en="Years Exp." data-cn="年经验">Years Exp.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background: white;">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <p class="section-label" data-en="What I Offer" data-cn="我的服务">What I Offer</p>
+    <h2 class="section-title" data-en="Services" data-cn="服务内容">Services</h2>
+  </div>
+  <div class="services-grid fade-in">
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-title" data-en="Xiaohongshu Marketing" data-cn="小红书营销咨询">Xiaohongshu Marketing</div>
+      <p class="service-desc" data-en="Strategy, content planning, and growth consulting for overseas brands entering China's top lifestyle platform." data-cn="为进入中国市场的海外品牌提供小红书策略规划、内容运营及增长咨询服务。">Strategy, content planning, and growth consulting for overseas brands entering China's top lifestyle platform.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎬</div>
+      <div class="service-title" data-en="Content Creation & UGC" data-cn="内容创作 / UGC">Content Creation & UGC</div>
+      <p class="service-desc" data-en="Authentic, scroll-stopping content in Chinese and English for social media campaigns and brand storytelling." data-cn="为社媒营销和品牌故事打造中英双语的真实感、高吸引力内容。">Authentic, scroll-stopping content in Chinese and English for social media campaigns and brand storytelling.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <div class="service-title" data-en="Brand Collaboration" data-cn="品牌合作 / 代言">Brand Collaboration</div>
+      <p class="service-desc" data-en="Partnership opportunities for brands aligned with travel, lifestyle, culture, and personal growth themes." data-cn="面向旅行、生活方式、文化与个人成长领域品牌的合作与代言机会。">Partnership opportunities for brands aligned with travel, lifestyle, culture, and personal growth themes.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📖</div>
+      <div class="service-title" data-en="Digital Products" data-cn="数字产品（指南/PDF）">Digital Products</div>
+      <p class="service-desc" data-en="Practical guides and resources for brands and creators looking to understand and grow in China's market." data-cn="为希望了解和拓展中国市场的品牌及创作者提供实用指南和资源。">Practical guides and resources for brands and creators looking to understand and grow in China's market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="work">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <p class="section-label" data-en="Selected Work" data-cn="精选案例">Selected Work</p>
+    <h2 class="section-title" data-en="Portfolio" data-cn="作品集">Portfolio</h2>
+  </div>
+  <div class="portfolio-grid fade-in">
+    <div class="portfolio-card">
+      <div class="portfolio-img a">🛋️</div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Xiaohongshu</span>
+        <div class="portfolio-title" data-en="US Furniture Brand China Launch" data-cn="美国家居品牌小红书入驻">US Furniture Brand China Launch</div>
+        <p class="portfolio-desc" data-en="Content strategy and UGC campaign for a US furniture brand's Xiaohongshu debut. Grew to 5,000 followers in 60 days." data-cn="为美国家居品牌制定小红书内容策略及UGC活动，60天内涨粉5,000。">Content strategy and UGC campaign for a US furniture brand's Xiaohongshu debut. Grew to 5,000 followers in 60 days.</p>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-img b">✈️</div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag" data-en="Content Creation" data-cn="内容创作">Content Creation</span>
+        <div class="portfolio-title" data-en="23 Countries Travel Series" data-cn="23国旅行内容系列">23 Countries Travel Series</div>
+        <p class="portfolio-desc" data-en="Bilingual travel content series covering Europe, Latin America, and Asia, reaching 20K+ followers organically." data-cn="中英双语旅行内容系列，覆盖欧洲、拉丁美洲和亚洲，自然涨粉超2万。">Bilingual travel content series covering Europe, Latin America, and Asia, reaching 20K+ followers organically.</p>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-img c">📊</div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">TikTok · ByteDance</span>
+        <div class="portfolio-title" data-en="TikTok Shop Campaign" data-cn="TikTok Shop 营销项目">TikTok Shop Campaign</div>
+        <p class="portfolio-desc" data-en="Operations and marketing for TikTok US furniture category with $1.4M daily GMV target and 30% efficiency gain." data-cn="负责TikTok美国家居品类运营与营销，日GMV目标140万美元，效率提升30%。">Operations and marketing for TikTok US furniture category with $1.4M daily GMV target and 30% efficiency gain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label" data-en="Get In Touch" data-cn="联系我">Get In Touch</p>
+  <h2 class="section-title" data-en="Let's Work Together" data-cn="期待与你合作">Let's Work Together</h2>
+  <p class="contact-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a2037226b686b6e626c6e6868631a6b6c6974393537">[email&#160;protected]</a></p>
+  <div class="contact-form">
+    <input type="text" data-en-placeholder="Your Name" data-cn-placeholder="你的名字" placeholder="Your Name">
+    <input type="email" data-en-placeholder="Email" data-cn-placeholder="邮件地址" placeholder="Email">
+    <textarea data-en-placeholder="Tell me about your project..." data-cn-placeholder="描述你的项目..." placeholder="Tell me about your project..."></textarea>
+    <button data-en="Send Message" data-cn="发送消息">Send Message</button>
+  </div>
+  <div class="social-links">
+    <a href="https://www.xiaohongshu.com/user/profile/5a9d65a4e8ac2b3e6e0f77e5" target="_blank" class="social-link">小红书 RED</a>
+    <a href="https://www.instagram.com/mengxue0716/" target="_blank" class="social-link">Instagram</a>
+    <a href="#" class="social-link">LinkedIn</a>
+    <a href="#" class="social-link">TikTok</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Monica · monicamarketing.com · All rights reserved
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── 语言切换 ──────────────────────────────────────────
+  let currentLang = 'en';
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'cn' : 'en';
+    applyLang();
+  }
+
+  function applyLang() {
+    const isCn = currentLang === 'cn';
+
+    // 切换按钮文字
+    document.querySelector('.lang-toggle').textContent = isCn ? 'English' : '中文';
+
+    // 切换所有有 data-en / data-cn 的元素内容
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.innerHTML = isCn ? el.dataset.cn : el.dataset.en;
+    });
+
+    // 切换 input / textarea 的 placeholder
+    document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+      el.placeholder = isCn ? el.dataset.cnPlaceholder : el.dataset.enPlaceholder;
+    });
+
+    // 更新 html lang 属性
+    document.documentE

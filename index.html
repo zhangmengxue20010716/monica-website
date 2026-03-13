@@ -284,7 +284,7 @@
   }
 
   /* SCROLL FADE */
-  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .fade-in { opacity: 1; transform: none; }
   .fade-in.visible { opacity: 1; transform: none; }
 
   .service-card.fade-in:nth-child(2) { transition-delay: 0.15s; }
@@ -467,4 +467,14 @@
     });
 
     // 更新 html lang 属性
-    document.documentE
+    document.documentElement.lang = isCn ? 'zh' : 'en';
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

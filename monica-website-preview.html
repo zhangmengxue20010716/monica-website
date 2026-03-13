@@ -51,11 +51,10 @@
 
   .lang-toggle {
     background: var(--terra); color: white;
-    border: none; padding: 0.4rem 1.2rem; border-radius: 20px;
+    border: none; padding: 0.4rem 1rem; border-radius: 20px;
     font-size: 0.8rem; cursor: pointer; font-family: 'DM Sans', sans-serif;
-    letter-spacing: 0.05em; transition: opacity 0.2s;
+    letter-spacing: 0.05em;
   }
-  .lang-toggle:hover { opacity: 0.85; }
 
   /* HERO */
   .hero {
@@ -91,7 +90,12 @@
 
   .hero-tagline {
     font-size: 1rem; color: var(--mid);
-    line-height: 1.7; margin-bottom: 2.5rem;
+    line-height: 1.7; margin-bottom: 0.5rem;
+  }
+
+  .hero-tagline-cn {
+    font-size: 0.95rem; color: var(--rose);
+    margin-bottom: 2.5rem;
   }
 
   .hero-cta {
@@ -121,6 +125,7 @@
     border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
     background: linear-gradient(135deg, var(--beige), var(--rose));
     display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
     font-size: 4rem; color: white;
     opacity: 0.85;
     box-shadow: 0 30px 80px rgba(201,113,74,0.2);
@@ -192,7 +197,8 @@
   .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(44,36,32,0.1); }
 
   .service-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .service-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 0.8rem; }
+  .service-en { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 0.3rem; }
+  .service-cn { font-size: 0.85rem; color: var(--terra); margin-bottom: 0.8rem; }
   .service-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
 
   /* PORTFOLIO */
@@ -308,27 +314,26 @@
 <nav>
   <div class="nav-logo">Monica · 莫妮卡</div>
   <ul class="nav-links">
-    <li><a href="#about" data-en="About" data-cn="关于我">About</a></li>
-    <li><a href="#services" data-en="Services" data-cn="服务">Services</a></li>
-    <li><a href="#work" data-en="Work" data-cn="案例">Work</a></li>
-    <li><a href="#contact" data-en="Contact" data-cn="联系">Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="lang-toggle" onclick="toggleLang()">中文</button>
+  <button class="lang-toggle">EN · 中文</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-float" style="background:none; padding:0; overflow:hidden;">
-    <img src="photo_hero.jpg" alt="Monica" style="width:100%; height:100%; object-fit:cover; border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;">
-  </div>
+  <div class="hero-float">🌏</div>
   <div class="hero-content">
     <p class="hero-eyebrow">monicamarketing.com</p>
-    <h1 class="hero-name" data-en="Hi, I'm<br><em>Monica</em>" data-cn="你好，我是<br><em>Monica</em>">Hi, I'm<br><em>Monica</em></h1>
-    <p class="hero-tagline" data-en="China Marketing Consultant · Content Creator · World Traveler" data-cn="小红书营销顾问 · 内容创作者 · 旅行者">China Marketing Consultant · Content Creator · World Traveler</p>
+    <h1 class="hero-name">Hi, I'm<br><em>Monica</em></h1>
+    <p class="hero-tagline">China Marketing Consultant · Content Creator · World Traveler</p>
+    <p class="hero-tagline-cn">小红书营销顾问 · 内容创作者 · 旅行者</p>
     <div class="hero-cta">
-      <a href="#services" class="btn-primary" data-en="View Services" data-cn="查看服务">View Services</a>
-      <a href="#contact" class="btn-outline" data-en="Let's Talk" data-cn="联系我">Let's Talk</a>
+      <a href="#services" class="btn-primary">View Services</a>
+      <a href="#contact" class="btn-outline">Let's Talk</a>
     </div>
   </div>
 </section>
@@ -336,19 +341,17 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
-    <div class="about-photo" style="background:none; padding:0; overflow:hidden;">
-      <img src="photo_about.jpg" alt="Monica" style="width:100%; height:100%; object-fit:cover; border-radius: 40% 60% 55% 45% / 45% 50% 50% 55%;">
-    </div>
+    <div class="about-photo">✦</div>
     <div class="about-text fade-in">
-      <p class="section-label" data-en="About Me" data-cn="关于我">About Me</p>
-      <h2 class="section-title" data-en="Shanghai-based creator & China marketing expert" data-cn="驻上海的内容创作者与中国营销专家">Shanghai-based creator & China marketing expert</h2>
-      <p data-en="I'm Monica — a digital entrepreneur and content creator based in Shanghai with a Master's degree from Tongji University. I've worked at TikTok and ByteDance, and I specialize in helping overseas brands build their presence on Chinese platforms like Xiaohongshu (RED)." data-cn="我是Monica，驻上海的数字创业者和内容创作者，同济大学教育学硕士，曾在TikTok和字节跳动实习。专注于帮助海外品牌在小红书等中国社交媒体平台上建立影响力。">I'm Monica — a digital entrepreneur and content creator based in Shanghai with a Master's degree from Tongji University. I've worked at TikTok and ByteDance, and I specialize in helping overseas brands build their presence on Chinese platforms like Xiaohongshu (RED).</p>
-      <p data-en="I speak Chinese, English, and Spanish, have traveled to 23+ countries, and bring a unique cross-cultural perspective to every project I work on." data-cn="我会中文、英文和西班牙语，走过23个以上的国家，为每一个项目带来独特的跨文化视角。">I speak Chinese, English, and Spanish, have traveled to 23+ countries, and bring a unique cross-cultural perspective to every project I work on.</p>
+      <p class="section-label">About Me · 关于我</p>
+      <h2 class="section-title">Shanghai-based creator & China marketing expert</h2>
+      <p>I'm Monica — a digital entrepreneur and content creator based in Shanghai with a Master's degree from Tongji University. I've worked at TikTok and ByteDance, and I specialize in helping overseas brands build their presence on Chinese platforms like Xiaohongshu (RED).</p>
+      <p>我是Monica，驻上海的数字创业者，同济大学教育学硕士，曾在TikTok和字节跳动实习。专注于帮助海外品牌在小红书等中国社交媒体建立影响力。</p>
       <div class="about-stats">
-        <div class="stat"><span class="stat-num">23+</span><span class="stat-label" data-en="Countries" data-cn="个国家">Countries</span></div>
-        <div class="stat"><span class="stat-num">3</span><span class="stat-label" data-en="Languages" data-cn="门语言">Languages</span></div>
-        <div class="stat"><span class="stat-num">20K+</span><span class="stat-label" data-en="Followers" data-cn="粉丝">Followers</span></div>
-        <div class="stat"><span class="stat-num">4+</span><span class="stat-label" data-en="Years Exp." data-cn="年经验">Years Exp.</span></div>
+        <div class="stat"><span class="stat-num">23+</span><span class="stat-label">Countries</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Languages</span></div>
+        <div class="stat"><span class="stat-num">20K+</span><span class="stat-label">Followers</span></div>
+        <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Years Exp.</span></div>
       </div>
     </div>
   </div>
@@ -357,29 +360,33 @@
 <!-- SERVICES -->
 <section id="services" style="background: white;">
   <div style="max-width:1100px; margin: 0 auto;">
-    <p class="section-label" data-en="What I Offer" data-cn="我的服务">What I Offer</p>
-    <h2 class="section-title" data-en="Services" data-cn="服务内容">Services</h2>
+    <p class="section-label">What I Offer · 我的服务</p>
+    <h2 class="section-title">Services</h2>
   </div>
   <div class="services-grid">
     <div class="service-card fade-in">
       <div class="service-icon">📱</div>
-      <div class="service-title" data-en="Xiaohongshu Marketing" data-cn="小红书营销咨询">Xiaohongshu Marketing</div>
-      <p class="service-desc" data-en="Strategy, content planning, and growth consulting for overseas brands entering China's top lifestyle platform." data-cn="为进入中国市场的海外品牌提供小红书策略规划、内容运营及增长咨询服务。">Strategy, content planning, and growth consulting for overseas brands entering China's top lifestyle platform.</p>
+      <div class="service-en">Xiaohongshu Marketing</div>
+      <div class="service-cn">小红书营销咨询</div>
+      <p class="service-desc">Strategy, content planning, and growth consulting for overseas brands entering China's top lifestyle platform.</p>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">🎬</div>
-      <div class="service-title" data-en="Content Creation & UGC" data-cn="内容创作 / UGC">Content Creation & UGC</div>
-      <p class="service-desc" data-en="Authentic, scroll-stopping content in Chinese and English for social media campaigns and brand storytelling." data-cn="为社媒营销和品牌故事打造中英双语的真实感、高吸引力内容。">Authentic, scroll-stopping content in Chinese and English for social media campaigns and brand storytelling.</p>
+      <div class="service-en">Content Creation & UGC</div>
+      <div class="service-cn">内容创作 / UGC</div>
+      <p class="service-desc">Authentic, scroll-stopping content in Chinese and English for social media campaigns and brand storytelling.</p>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">🤝</div>
-      <div class="service-title" data-en="Brand Collaboration" data-cn="品牌合作 / 代言">Brand Collaboration</div>
-      <p class="service-desc" data-en="Partnership opportunities for brands aligned with travel, lifestyle, culture, and personal growth themes." data-cn="面向旅行、生活方式、文化与个人成长领域品牌的合作与代言机会。">Partnership opportunities for brands aligned with travel, lifestyle, culture, and personal growth themes.</p>
+      <div class="service-en">Brand Collaboration</div>
+      <div class="service-cn">品牌合作 / 代言</div>
+      <p class="service-desc">Partnership opportunities for brands aligned with travel, lifestyle, culture, and personal growth themes.</p>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">📖</div>
-      <div class="service-title" data-en="Digital Products" data-cn="数字产品（指南/PDF）">Digital Products</div>
-      <p class="service-desc" data-en="Practical guides and resources for brands and creators looking to understand and grow in China's market." data-cn="为希望了解和拓展中国市场的品牌及创作者提供实用指南和资源。">Practical guides and resources for brands and creators looking to understand and grow in China's market.</p>
+      <div class="service-en">Digital Products</div>
+      <div class="service-cn">数字产品（指南/PDF）</div>
+      <p class="service-desc">Practical guides and resources for brands and creators looking to understand and grow in China's market.</p>
     </div>
   </div>
 </section>
@@ -387,32 +394,32 @@
 <!-- PORTFOLIO -->
 <section class="portfolio" id="work">
   <div style="max-width:1100px; margin: 0 auto;">
-    <p class="section-label" data-en="Selected Work" data-cn="精选案例">Selected Work</p>
-    <h2 class="section-title" data-en="Portfolio" data-cn="作品集">Portfolio</h2>
+    <p class="section-label">Selected Work · 精选案例</p>
+    <h2 class="section-title">Portfolio</h2>
   </div>
   <div class="portfolio-grid">
     <div class="portfolio-card fade-in">
       <div class="portfolio-img a">🛋️</div>
       <div class="portfolio-body">
         <span class="portfolio-tag">Xiaohongshu</span>
-        <div class="portfolio-title" data-en="US Furniture Brand China Launch" data-cn="美国家居品牌小红书入驻">US Furniture Brand China Launch</div>
-        <p class="portfolio-desc" data-en="Content strategy and UGC campaign for a US furniture brand's Xiaohongshu debut. Grew to 5,000 followers in 60 days." data-cn="为美国家居品牌制定小红书内容策略及UGC活动，60天内涨粉5,000。">Content strategy and UGC campaign for a US furniture brand's Xiaohongshu debut. Grew to 5,000 followers in 60 days.</p>
+        <div class="portfolio-title">US Furniture Brand China Launch</div>
+        <p class="portfolio-desc">Content strategy and UGC campaign for a US furniture brand's Xiaohongshu debut. Grew to 5,000 followers in 60 days.</p>
       </div>
     </div>
     <div class="portfolio-card fade-in">
       <div class="portfolio-img b">✈️</div>
       <div class="portfolio-body">
-        <span class="portfolio-tag" data-en="Content Creation" data-cn="内容创作">Content Creation</span>
-        <div class="portfolio-title" data-en="23 Countries Travel Series" data-cn="23国旅行内容系列">23 Countries Travel Series</div>
-        <p class="portfolio-desc" data-en="Bilingual travel content series covering Europe, Latin America, and Asia, reaching 20K+ followers organically." data-cn="中英双语旅行内容系列，覆盖欧洲、拉丁美洲和亚洲，自然涨粉超2万。">Bilingual travel content series covering Europe, Latin America, and Asia, reaching 20K+ followers organically.</p>
+        <span class="portfolio-tag">Content Creation</span>
+        <div class="portfolio-title">23 Countries Travel Series</div>
+        <p class="portfolio-desc">Bilingual travel content series covering Europe, Latin America, and Asia, reaching 20K+ followers organically.</p>
       </div>
     </div>
     <div class="portfolio-card fade-in">
       <div class="portfolio-img c">📊</div>
       <div class="portfolio-body">
         <span class="portfolio-tag">TikTok · ByteDance</span>
-        <div class="portfolio-title" data-en="TikTok Shop Campaign" data-cn="TikTok Shop 营销项目">TikTok Shop Campaign</div>
-        <p class="portfolio-desc" data-en="Operations and marketing for TikTok US furniture category with $1.4M daily GMV target and 30% efficiency gain." data-cn="负责TikTok美国家居品类运营与营销，日GMV目标140万美元，效率提升30%。">Operations and marketing for TikTok US furniture category with $1.4M daily GMV target and 30% efficiency gain.</p>
+        <div class="portfolio-title">TikTok Shop Campaign</div>
+        <p class="portfolio-desc">Operations and marketing for TikTok US furniture category with $1.4M daily GMV target and 30% efficiency gain.</p>
       </div>
     </div>
   </div>
@@ -420,18 +427,18 @@
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <p class="section-label" data-en="Get In Touch" data-cn="联系我">Get In Touch</p>
-  <h2 class="section-title" data-en="Let's Work Together" data-cn="期待与你合作">Let's Work Together</h2>
-  <p class="contact-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a2037226b686b6e626c6e6868631a6b6c6974393537">[email&#160;protected]</a></p>
+  <p class="section-label">Get In Touch · 联系我</p>
+  <h2 class="section-title">Let's Work Together</h2>
+  <p class="contact-sub">期待与你合作 · hello@monicamarketing.com</p>
   <div class="contact-form">
-    <input type="text" data-en-placeholder="Your Name" data-cn-placeholder="你的名字" placeholder="Your Name">
-    <input type="email" data-en-placeholder="Email" data-cn-placeholder="邮件地址" placeholder="Email">
-    <textarea data-en-placeholder="Tell me about your project..." data-cn-placeholder="描述你的项目..." placeholder="Tell me about your project..."></textarea>
-    <button data-en="Send Message" data-cn="发送消息">Send Message</button>
+    <input type="text" placeholder="Your Name · 你的名字">
+    <input type="email" placeholder="Email · 邮件">
+    <textarea placeholder="Tell me about your project · 描述你的项目..."></textarea>
+    <button>Send Message · 发送</button>
   </div>
   <div class="social-links">
-    <a href="https://www.xiaohongshu.com/user/profile/5a9d65a4e8ac2b3e6e0f77e5" target="_blank" class="social-link">小红书 RED</a>
-    <a href="https://www.instagram.com/mengxue0716/" target="_blank" class="social-link">Instagram</a>
+    <a href="#" class="social-link">小红书 RED</a>
+    <a href="#" class="social-link">Instagram</a>
     <a href="#" class="social-link">LinkedIn</a>
     <a href="#" class="social-link">TikTok</a>
   </div>
@@ -441,30 +448,12 @@
   © 2026 Monica · monicamarketing.com · All rights reserved
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── 语言切换 ──────────────────────────────────────────
-  let currentLang = 'en';
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
-  function toggleLang() {
-    currentLang = currentLang === 'en' ? 'cn' : 'en';
-    applyLang();
-  }
-
-  function applyLang() {
-    const isCn = currentLang === 'cn';
-
-    // 切换按钮文字
-    document.querySelector('.lang-toggle').textContent = isCn ? 'English' : '中文';
-
-    // 切换所有有 data-en / data-cn 的元素内容
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.innerHTML = isCn ? el.dataset.cn : el.dataset.en;
-    });
-
-    // 切换 input / textarea 的 placeholder
-    document.querySelectorAll('[data-en-placeholder]').forEach(el => {
-      el.placeholder = isCn ? el.dataset.cnPlaceholder : el.dataset.enPlaceholder;
-    });
-
-    // 更新 html lang 属性
-    document.documentE
+</body>
+</html>

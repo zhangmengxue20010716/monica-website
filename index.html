@@ -126,6 +126,37 @@
     box-shadow: 0 30px 80px rgba(201,113,74,0.2);
   }
 
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--dark);
+    padding: 2.5rem 4rem;
+  }
+
+  .stats-bar-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 1rem; text-align: center;
+  }
+
+  .stats-bar-item {
+    border-right: 1px solid rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+  }
+
+  .stats-bar-item:last-child { border-right: none; }
+
+  .stats-bar-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; color: var(--rose);
+    display: block; margin-bottom: 0.3rem;
+  }
+
+  .stats-bar-label {
+    font-size: 0.7rem; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    line-height: 1.4;
+  }
+
   /* SECTIONS */
   section { padding: 6rem 4rem; }
 
@@ -208,6 +239,7 @@
     border-radius: 16px; overflow: hidden;
     border: 1px solid var(--beige);
     transition: transform 0.2s;
+    background: white;
   }
 
   .portfolio-card:hover { transform: translateY(-4px); }
@@ -221,15 +253,223 @@
   .portfolio-img.a { background: linear-gradient(135deg, #E8C4B8, #C9714A); }
   .portfolio-img.b { background: linear-gradient(135deg, #D4C4BC, #D4A5A0); }
   .portfolio-img.c { background: linear-gradient(135deg, #C4B5B0, #9E7870); }
+  .portfolio-img.d { background: linear-gradient(135deg, #B8D4D8, #6A9DA5); }
+  .portfolio-img.e { background: linear-gradient(135deg, #D4C8E8, #8A70B8); }
 
-  .portfolio-body { padding: 1.5rem; background: white; }
+  .portfolio-body { padding: 1.5rem; }
   .portfolio-tag {
     display: inline-block; background: var(--beige);
     color: var(--terra); font-size: 0.7rem; padding: 0.2rem 0.7rem;
     border-radius: 20px; margin-bottom: 0.6rem; letter-spacing: 0.05em;
+    margin-right: 0.3rem;
   }
-  .portfolio-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.5rem; }
-  .portfolio-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+  .portfolio-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.5rem; margin-top: 0.5rem; }
+  .portfolio-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; }
+
+  .portfolio-stats {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid var(--beige);
+  }
+
+  .portfolio-stat {
+    text-align: center;
+  }
+
+  .portfolio-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--terra);
+    display: block;
+  }
+
+  .portfolio-stat-label {
+    font-size: 0.65rem; color: var(--mid);
+    letter-spacing: 0.04em;
+  }
+
+  .portfolio-what {
+    margin-top: 0.8rem;
+  }
+
+  .portfolio-what-title {
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--terra); margin-bottom: 0.4rem;
+  }
+
+  .portfolio-what ul {
+    list-style: none; padding: 0;
+  }
+
+  .portfolio-what ul li {
+    font-size: 0.8rem; color: var(--mid);
+    padding: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .portfolio-what ul li::before {
+    content: '·';
+    position: absolute; left: 0;
+    color: var(--terra);
+  }
+
+  /* FOR CREATORS */
+  .for-creators {
+    background: var(--dark);
+    color: white;
+    padding: 6rem 4rem;
+  }
+
+  .for-creators .section-label { color: var(--rose); }
+  .for-creators .section-title { color: white; margin-bottom: 1rem; }
+
+  .creators-intro {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem; line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+
+  .creators-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; max-width: 1100px; align-items: start;
+  }
+
+  .creators-case {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .creators-case-label {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 1rem;
+  }
+
+  .creators-case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: white; margin-bottom: 0.8rem;
+  }
+
+  .creators-case-desc {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.88rem; line-height: 1.75;
+    margin-bottom: 1.8rem;
+  }
+
+  .creators-case-stats {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; margin-bottom: 1.5rem;
+  }
+
+  .creators-case-stat {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px; padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .creators-case-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--rose);
+    display: block; margin-bottom: 0.2rem;
+  }
+
+  .creators-case-stat-label {
+    font-size: 0.7rem; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  .creators-services {
+    padding: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+  }
+
+  .creators-services-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: white; margin-bottom: 1.5rem;
+  }
+
+  .creators-service-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .creators-service-item:last-child { border-bottom: none; }
+
+  .creators-service-icon {
+    font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem;
+  }
+
+  .creators-service-name {
+    font-size: 0.9rem; color: white; font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+
+  .creators-service-desc {
+    font-size: 0.8rem; color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  .creators-cta {
+    margin-top: 3rem; text-align: center;
+  }
+
+  .creators-cta p {
+    color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 1.2rem;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--beige);
+    padding: 6rem 4rem;
+  }
+
+  .testimonials-grid {
+    max-width: 1100px; margin: 3rem auto 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: white; border-radius: 16px; padding: 2rem;
+    border: 1px solid var(--beige);
+    position: relative;
+  }
+
+  .testimonial-quote {
+    font-size: 3rem; color: var(--rose);
+    font-family: 'Playfair Display', serif;
+    line-height: 1; margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+
+  .testimonial-text {
+    font-size: 0.92rem; color: var(--mid);
+    line-height: 1.8; margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+
+  .testimonial-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--terra), var(--rose));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1rem; flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-size: 0.85rem; font-weight: 500; color: var(--dark);
+  }
+
+  .testimonial-role {
+    font-size: 0.75rem; color: var(--mid);
+  }
 
   /* CONTACT */
   .contact { background: var(--dark); color: white; text-align: center; }
@@ -284,15 +524,8 @@
     font-size: 0.75rem; letter-spacing: 0.05em;
   }
 
-  /* SCROLL FADE */
   .fade-in { opacity: 1; transform: none; }
   .fade-in.visible { opacity: 1; transform: none; }
-
-  .service-card.fade-in:nth-child(2) { transition-delay: 0.15s; }
-  .service-card.fade-in:nth-child(3) { transition-delay: 0.3s; }
-  .service-card.fade-in:nth-child(4) { transition-delay: 0.45s; }
-  .portfolio-card.fade-in:nth-child(2) { transition-delay: 0.15s; }
-  .portfolio-card.fade-in:nth-child(3) { transition-delay: 0.3s; }
 
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
@@ -301,6 +534,12 @@
     .hero-float { width: 220px; height: 280px; }
     section { padding: 4rem 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-bar { padding: 2rem 1.5rem; }
+    .stats-bar-inner { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .stats-bar-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
+    .creators-layout { grid-template-columns: 1fr; }
+    .for-creators { padding: 4rem 1.5rem; }
+    .testimonials { padding: 4rem 1.5rem; }
   }
 </style>
 </head>
@@ -312,6 +551,7 @@
     <li><a href="#about" data-en="About" data-cn="关于我">About</a></li>
     <li><a href="#services" data-en="Services" data-cn="服务">Services</a></li>
     <li><a href="#work" data-en="Work" data-cn="案例">Work</a></li>
+    <li><a href="#creators" data-en="For Creators" data-cn="创作者">For Creators</a></li>
     <li><a href="#contact" data-en="Contact" data-cn="联系">Contact</a></li>
   </ul>
   <button class="lang-toggle" onclick="toggleLang()">中文</button>
@@ -333,6 +573,36 @@
     </div>
   </div>
 </section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">23+</span>
+      <span class="stats-bar-label" data-en="Countries Traveled" data-cn="旅行国家">Countries Traveled</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">20K+</span>
+      <span class="stats-bar-label" data-en="Xiaohongshu Followers" data-cn="小红书粉丝">Xiaohongshu Followers</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">30+</span>
+      <span class="stats-bar-label" data-en="Brand Collaborations" data-cn="品牌合作">Brand Collaborations</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">100K+</span>
+      <span class="stats-bar-label" data-en="Video Views (single post)" data-cn="单条视频播放量">Video Views (single post)</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">$1.4M</span>
+      <span class="stats-bar-label" data-en="Daily GMV Managed" data-cn="日GMV管理">Daily GMV Managed</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">3</span>
+      <span class="stats-bar-label" data-en="Languages" data-cn="门语言">Languages</span>
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
@@ -398,28 +668,229 @@
     <h2 class="section-title" data-en="Portfolio" data-cn="作品集">Portfolio</h2>
   </div>
   <div class="portfolio-grid">
+
+    <!-- Case 1: Yuanbao AI -->
+    <div class="portfolio-card">
+      <div class="portfolio-img a" style="background: linear-gradient(135deg, #B8C8E8, #5A7AB8); font-size:2.5rem;">🤖</div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Xiaohongshu</span>
+        <span class="portfolio-tag">Sponsored</span>
+        <div class="portfolio-title" data-en="Yuanbao AI · Sponsored Video Campaign" data-cn="元宝AI · 小红书赞助视频">Yuanbao AI · Sponsored Video Campaign</div>
+        <p class="portfolio-desc" data-en="Full-service sponsored video campaign for Yuanbao AI (元宝), Tencent's AI assistant — from script to publish to performance report." data-cn="为腾讯旗下元宝AI提供全流程赞助视频服务，涵盖脚本策划、拍摄剪辑到数据复盘。">Full-service sponsored video campaign for Yuanbao AI (元宝), Tencent's AI assistant — from script to publish to performance report.</p>
+        <div class="portfolio-what">
+          <div class="portfolio-what-title" data-en="What I did" data-cn="我做了什么">What I did</div>
+          <ul>
+            <li data-en="Developed content concept & wrote full video script" data-cn="策划内容方向，撰写完整视频脚本">Developed content concept & wrote full video script</li>
+            <li data-en="Shot, directed and edited the short-form video" data-cn="独立完成拍摄、导演与剪辑">Shot, directed and edited the short-form video</li>
+            <li data-en="Delivered post-campaign performance report" data-cn="提供完整的投后数据复盘报告">Delivered post-campaign performance report</li>
+          </ul>
+        </div>
+        <div class="portfolio-stats">
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">100K+</span>
+            <span class="portfolio-stat-label" data-en="Views" data-cn="播放量">Views</span>
+          </div>
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">12K+</span>
+            <span class="portfolio-stat-label" data-en="Likes" data-cn="点赞">Likes</span>
+          </div>
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">3K+</span>
+            <span class="portfolio-stat-label" data-en="Saves" data-cn="收藏">Saves</span>
+          </div>
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">~15%</span>
+            <span class="portfolio-stat-label" data-en="Eng. Rate" data-cn="互动率">Eng. Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2: German Creator Account -->
+    <div class="portfolio-card">
+      <div class="portfolio-img e" style="font-size:2.5rem;">🇩🇪</div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Creator Growth</span>
+        <span class="portfolio-tag">Xiaohongshu</span>
+        <div class="portfolio-title" data-en="German Creator · Xiaohongshu from Zero" data-cn="德国创作者 · 小红书从零起号">German Creator · Xiaohongshu from Zero</div>
+        <p class="portfolio-desc" data-en="Built and managed a Xiaohongshu account from scratch for a German creator sharing life in China and Germany — handling everything from positioning to content to brand deals." data-cn="为德国创作者从零打造小红书账号，内容涵盖德国人在中国的生活及德国生活方式，全程负责账号定位、内容策划到商务合作。">Built and managed a Xiaohongshu account from scratch for a German creator sharing life in China and Germany — handling everything from positioning to content to brand deals.</p>
+        <div class="portfolio-what">
+          <div class="portfolio-what-title" data-en="What I did" data-cn="我做了什么">What I did</div>
+          <ul>
+            <li data-en="Account positioning, content strategy & planning" data-cn="账号定位、内容策略与排期规划">Account positioning, content strategy & planning</li>
+            <li data-en="Script writing, filming guidance & video editing" data-cn="脚本撰写、拍摄指导与视频剪辑">Script writing, filming guidance & video editing</li>
+            <li data-en="Chinese copywriting for all posts" data-cn="所有帖子的中文文案撰写">Chinese copywriting for all posts</li>
+            <li data-en="Brand deal sourcing & campaign management" data-cn="商单洽谈与合作执行管理">Brand deal sourcing & campaign management</li>
+            <li data-en="Data analytics & ongoing optimization" data-cn="数据分析与持续优化">Data analytics & ongoing optimization</li>
+          </ul>
+        </div>
+        <div class="portfolio-stats">
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">26K+</span>
+            <span class="portfolio-stat-label" data-en="Followers" data-cn="粉丝">Followers</span>
+          </div>
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">1M+</span>
+            <span class="portfolio-stat-label" data-en="Peak Views" data-cn="最高单条播放">Peak Views</span>
+          </div>
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">30+</span>
+            <span class="portfolio-stat-label" data-en="Brand Deals" data-cn="商单数量">Brand Deals</span>
+          </div>
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">¥100K+</span>
+            <span class="portfolio-stat-label" data-en="Revenue" data-cn="总变现">Revenue</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3: US Furniture Brand -->
     <div class="portfolio-card">
       <div class="portfolio-img a">🛋️</div>
       <div class="portfolio-body">
         <span class="portfolio-tag">Xiaohongshu</span>
+        <span class="portfolio-tag">UGC</span>
         <div class="portfolio-title" data-en="US Furniture Brand China Launch" data-cn="美国家居品牌小红书入驻">US Furniture Brand China Launch</div>
         <p class="portfolio-desc" data-en="Content strategy and UGC campaign for a US furniture brand's Xiaohongshu debut. Grew to 5,000 followers in 60 days." data-cn="为美国家居品牌制定小红书内容策略及UGC活动，60天内涨粉5,000。">Content strategy and UGC campaign for a US furniture brand's Xiaohongshu debut. Grew to 5,000 followers in 60 days.</p>
+        <div class="portfolio-stats">
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">5K+</span>
+            <span class="portfolio-stat-label" data-en="Followers in 60 days" data-cn="60天涨粉">Followers in 60 days</span>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Case 4: Travel Content -->
     <div class="portfolio-card">
       <div class="portfolio-img b">✈️</div>
       <div class="portfolio-body">
         <span class="portfolio-tag" data-en="Content Creation" data-cn="内容创作">Content Creation</span>
         <div class="portfolio-title" data-en="23 Countries Travel Series" data-cn="23国旅行内容系列">23 Countries Travel Series</div>
         <p class="portfolio-desc" data-en="Bilingual travel content series covering Europe, Latin America, and Asia, reaching 20K+ followers organically." data-cn="中英双语旅行内容系列，覆盖欧洲、拉丁美洲和亚洲，自然涨粉超2万。">Bilingual travel content series covering Europe, Latin America, and Asia, reaching 20K+ followers organically.</p>
+        <div class="portfolio-stats">
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">20K+</span>
+            <span class="portfolio-stat-label" data-en="Organic Followers" data-cn="自然涨粉">Organic Followers</span>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Case 5: TikTok -->
     <div class="portfolio-card">
       <div class="portfolio-img c">📊</div>
       <div class="portfolio-body">
         <span class="portfolio-tag">TikTok · ByteDance</span>
         <div class="portfolio-title" data-en="TikTok Shop Campaign" data-cn="TikTok Shop 营销项目">TikTok Shop Campaign</div>
         <p class="portfolio-desc" data-en="Operations and marketing for TikTok US furniture category with $1.4M daily GMV target and 30% efficiency gain." data-cn="负责TikTok美国家居品类运营与营销，日GMV目标140万美元，效率提升30%。">Operations and marketing for TikTok US furniture category with $1.4M daily GMV target and 30% efficiency gain.</p>
+        <div class="portfolio-stats">
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">$1.4M</span>
+            <span class="portfolio-stat-label" data-en="Daily GMV Target" data-cn="日GMV目标">Daily GMV Target</span>
+          </div>
+          <div class="portfolio-stat">
+            <span class="portfolio-stat-num">30%</span>
+            <span class="portfolio-stat-label" data-en="Efficiency Gain" data-cn="效率提升">Efficiency Gain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOR CREATORS -->
+<section class="for-creators" id="creators">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <p class="section-label" data-en="For Overseas Creators" data-cn="海外创作者">For Overseas Creators</p>
+    <h2 class="section-title" data-en="I can build your Xiaohongshu presence" data-cn="我帮你打造小红书账号">I can build your Xiaohongshu presence</h2>
+    <p class="creators-intro" data-en="Xiaohongshu (RedNote) has 300M+ users and is one of China's most powerful platforms for brand deals and monetization. Most overseas creators don't know how to break in — I do. I've built a German creator's account from zero to 26K followers, 1M+ peak views, and ¥100K+ in brand revenue in just over a year." data-cn="小红书拥有3亿以上用户，是中国最强大的内容变现平台之一。大多数海外创作者不知道如何切入——但我知道。我在一年多的时间里，将一位德国创作者的账号从零打造至2.6万粉丝、单条播放破百万、商单变现超10万元。">Xiaohongshu (RedNote) has 300M+ users and is one of China's most powerful platforms for brand deals and monetization. Most overseas creators don't know how to break in — I do. I've built a German creator's account from zero to 26K followers, 1M+ peak views, and ¥100K+ in brand revenue in just over a year.</p>
+
+    <div class="creators-layout">
+      <!-- Case study -->
+      <div class="creators-case">
+        <div class="creators-case-label" data-en="Real Case Study · Started May 2024" data-cn="真实案例 · 2024年5月起">Real Case Study · Started May 2024</div>
+        <div class="creators-case-title" data-en="German creator in China" data-cn="德国创作者在中国">German creator in China</div>
+        <div class="creators-case-desc" data-en="A German creator with zero Xiaohongshu presence wanted to share his life in China and Germany. I handled everything — from account strategy to Chinese copywriting to landing brand deals. In just over a year, the account became a monetizable brand in the travel, lifestyle and fitness space." data-cn="一位对小红书毫无了解的德国创作者，希望分享他在中国和德国的生活。我从账号策划到中文文案再到商务合作全程操盘。一年多后，该账号成为旅行、生活方式与健身领域的可变现品牌。">A German creator with zero Xiaohongshu presence wanted to share his life in China and Germany. I handled everything — from account strategy to Chinese copywriting to landing brand deals. In just over a year, the account became a monetizable brand in the travel, lifestyle and fitness space.</div>
+        <div class="creators-case-stats">
+          <div class="creators-case-stat">
+            <span class="creators-case-stat-num">26K+</span>
+            <span class="creators-case-stat-label" data-en="Followers grown" data-cn="涨粉数量">Followers grown</span>
+          </div>
+          <div class="creators-case-stat">
+            <span class="creators-case-stat-num">1M+</span>
+            <span class="creators-case-stat-label" data-en="Peak video views" data-cn="最高单条播放">Peak video views</span>
+          </div>
+          <div class="creators-case-stat">
+            <span class="creators-case-stat-num">30+</span>
+            <span class="creators-case-stat-label" data-en="Brand deals closed" data-cn="成功商单数">Brand deals closed</span>
+          </div>
+          <div class="creators-case-stat">
+            <span class="creators-case-stat-num">¥100K+</span>
+            <span class="creators-case-stat-label" data-en="Total revenue generated" data-cn="累计变现金额">Total revenue generated</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services for creators -->
+      <div class="creators-services">
+        <div class="creators-services-title" data-en="What I offer creators" data-cn="我为创作者提供什么">What I offer creators</div>
+        <div class="creators-service-item">
+          <div class="creators-service-icon">🎯</div>
+          <div>
+            <div class="creators-service-name" data-en="Account positioning & strategy" data-cn="账号定位与策略规划">Account positioning & strategy</div>
+            <div class="creators-service-desc" data-en="Find your niche, define your audience, and build a content strategy that works on Xiaohongshu." data-cn="找准定位，明确受众，制定适合小红书平台的内容策略。">Find your niche, define your audience, and build a content strategy that works on Xiaohongshu.</div>
+          </div>
+        </div>
+        <div class="creators-service-item">
+          <div class="creators-service-icon">✍️</div>
+          <div>
+            <div class="creators-service-name" data-en="Script writing & Chinese copywriting" data-cn="脚本撰写与中文文案">Script writing & Chinese copywriting</div>
+            <div class="creators-service-desc" data-en="Native-level Chinese captions, titles, and scripts tailored to platform trends." data-cn="原生中文标题、文案和脚本，贴合平台趋势。">Native-level Chinese captions, titles, and scripts tailored to platform trends.</div>
+          </div>
+        </div>
+        <div class="creators-service-item">
+          <div class="creators-service-icon">📊</div>
+          <div>
+            <div class="creators-service-name" data-en="Data analytics & optimization" data-cn="数据分析与持续优化">Data analytics & optimization</div>
+            <div class="creators-service-desc" data-en="Regular performance reviews and content adjustments to keep growing." data-cn="定期数据复盘，持续调整内容策略保持增长。">Regular performance reviews and content adjustments to keep growing.</div>
+          </div>
+        </div>
+        <div class="creators-service-item">
+          <div class="creators-service-icon">💼</div>
+          <div>
+            <div class="creators-service-name" data-en="Brand deal sourcing & management" data-cn="商单洽谈与合作管理">Brand deal sourcing & management</div>
+            <div class="creators-service-desc" data-en="Help you land paid partnerships with Chinese brands and manage campaigns end-to-end." data-cn="帮你对接中国品牌商单，全程管理合作执行。">Help you land paid partnerships with Chinese brands and manage campaigns end-to-end.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="creators-cta">
+      <p data-en="Interested in growing on Xiaohongshu? Let's talk." data-cn="想在小红书上成长？来聊聊吧。">Interested in growing on Xiaohongshu? Let's talk.</p>
+      <a href="#contact" class="btn-primary" data-en="Get In Touch" data-cn="联系我">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <p class="section-label" data-en="Client Feedback" data-cn="客户评价">Client Feedback</p>
+    <h2 class="section-title" data-en="What clients say" data-cn="他们怎么说">What clients say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text" data-en="The campaign exceeded our expectations — great reach, strong ROI, and a smooth collaboration process. Monica understood our product quickly and delivered content that truly resonated with the Xiaohongshu audience." data-cn="这次合作的效果超出了我们的预期——曝光量大、ROI强，合作过程非常顺畅。Monica很快理解了我们的产品，并产出了真正能打动小红书用户的内容。">The campaign exceeded our expectations — great reach, strong ROI, and a smooth collaboration process. Monica understood our product quickly and delivered content that truly resonated with the Xiaohongshu audience.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">元</div>
+        <div>
+          <div class="testimonial-name">Yuanbao AI (元宝) · Tencent</div>
+          <div class="testimonial-role" data-en="Sponsored Content Campaign" data-cn="赞助内容合作">Sponsored Content Campaign</div>
+        </div>
       </div>
     </div>
   </div>
@@ -448,8 +919,8 @@
   © 2026 Monica · monicamarketing.com · All rights reserved
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── 语言切换 ──────────────────────────────────────────
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
   let currentLang = 'en';
 
   function toggleLang() {
@@ -459,21 +930,13 @@
 
   function applyLang() {
     const isCn = currentLang === 'cn';
-
-    // 切换按钮文字
     document.querySelector('.lang-toggle').textContent = isCn ? 'English' : '中文';
-
-    // 切换所有有 data-en / data-cn 的元素内容
     document.querySelectorAll('[data-en]').forEach(el => {
       el.innerHTML = isCn ? el.dataset.cn : el.dataset.en;
     });
-
-    // 切换 input / textarea 的 placeholder
     document.querySelectorAll('[data-en-placeholder]').forEach(el => {
       el.placeholder = isCn ? el.dataset.cnPlaceholder : el.dataset.enPlaceholder;
     });
-
-    // 更新 html lang 属性
     document.documentElement.lang = isCn ? 'zh' : 'en';
   }
 

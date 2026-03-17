@@ -421,54 +421,55 @@
     color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 1.2rem;
   }
 
-  /* TESTIMONIALS */
-  .testimonials {
-    background: var(--beige);
+  /* BRANDS */
+  .brands-section {
+    background: white;
     padding: 6rem 4rem;
   }
 
-  .testimonials-grid {
-    max-width: 1100px; margin: 3rem auto 0;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
+  .brands-sub {
+    color: var(--mid); font-size: 0.95rem;
+    margin: 0.8rem 0 3rem; line-height: 1.7;
   }
 
-  .testimonial-card {
-    background: white; border-radius: 16px; padding: 2rem;
+  .brands-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+  }
+
+  .brand-card {
     border: 1px solid var(--beige);
-    position: relative;
+    border-radius: 16px; padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--cream);
+    position: relative; overflow: hidden;
   }
 
-  .testimonial-quote {
-    font-size: 3rem; color: var(--rose);
+  .brand-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--terra), var(--rose));
+    opacity: 0; transition: opacity 0.2s;
+  }
+
+  .brand-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(44,36,32,0.08); }
+  .brand-card:hover::before { opacity: 1; }
+
+  .brand-logo {
     font-family: 'Playfair Display', serif;
-    line-height: 1; margin-bottom: 1rem;
-    opacity: 0.6;
+    font-size: 1.6rem; color: var(--terra);
+    margin-bottom: 0.5rem; font-weight: 600;
   }
 
-  .testimonial-text {
-    font-size: 0.92rem; color: var(--mid);
-    line-height: 1.8; margin-bottom: 1.5rem;
-    font-style: italic;
+  .brand-name {
+    font-size: 1rem; font-weight: 500;
+    color: var(--dark); margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
   }
 
-  .testimonial-author {
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-
-  .testimonial-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--terra), var(--rose));
-    display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 1rem; flex-shrink: 0;
-  }
-
-  .testimonial-name {
-    font-size: 0.85rem; font-weight: 500; color: var(--dark);
-  }
-
-  .testimonial-role {
-    font-size: 0.75rem; color: var(--mid);
+  .brand-type {
+    font-size: 0.72rem; color: var(--mid);
+    letter-spacing: 0.06em; text-transform: uppercase;
   }
 
   /* CONTACT */
@@ -539,7 +540,8 @@
     .stats-bar-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
     .creators-layout { grid-template-columns: 1fr; }
     .for-creators { padding: 4rem 1.5rem; }
-    .testimonials { padding: 4rem 1.5rem; }
+    .brands-section { padding: 4rem 1.5rem; }
+    .brands-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -875,23 +877,43 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div style="max-width:1100px; margin: 0 auto;">
-    <p class="section-label" data-en="Client Feedback" data-cn="客户评价">Client Feedback</p>
-    <h2 class="section-title" data-en="What clients say" data-cn="他们怎么说">What clients say</h2>
+<!-- BRANDS -->
+<section class="brands-section" id="brands">
+  <div style="max-width:1100px; margin: 0 auto; text-align: center;">
+    <p class="section-label" data-en="Trusted By" data-cn="合作品牌">Trusted By</p>
+    <h2 class="section-title" data-en="Brands I've worked with" data-cn="我合作过的品牌">Brands I've worked with</h2>
+    <p class="brands-sub" data-en="From global tech giants to lifestyle brands — across content creation, KOL campaigns, and brand storytelling." data-cn="从全球科技巨头到生活方式品牌，涵盖内容创作、KOL合作与品牌传播。">From global tech giants to lifestyle brands — across content creation, KOL campaigns, and brand storytelling.</p>
   </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text" data-en="The campaign exceeded our expectations — great reach, strong ROI, and a smooth collaboration process. Monica understood our product quickly and delivered content that truly resonated with the Xiaohongshu audience." data-cn="这次合作的效果超出了我们的预期——曝光量大、ROI强，合作过程非常顺畅。Monica很快理解了我们的产品，并产出了真正能打动小红书用户的内容。">The campaign exceeded our expectations — great reach, strong ROI, and a smooth collaboration process. Monica understood our product quickly and delivered content that truly resonated with the Xiaohongshu audience.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">元</div>
-        <div>
-          <div class="testimonial-name">Yuanbao AI (元宝) · Tencent</div>
-          <div class="testimonial-role" data-en="Sponsored Content Campaign" data-cn="赞助内容合作">Sponsored Content Campaign</div>
-        </div>
-      </div>
+  <div class="brands-grid">
+    <div class="brand-card">
+      <div class="brand-logo">速卖通</div>
+      <div class="brand-name">AliExpress</div>
+      <div class="brand-type" data-en="Cross-border E-commerce" data-cn="跨境电商合作">Cross-border E-commerce</div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-logo">华为</div>
+      <div class="brand-name">Huawei</div>
+      <div class="brand-type" data-en="Brand Campaign · Auto" data-cn="品牌合作 · 汽车">Brand Campaign · Auto</div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-logo">托福</div>
+      <div class="brand-name">TOEFL</div>
+      <div class="brand-type" data-en="Education · Content Promotion" data-cn="教育 · 内容推广">Education · Content Promotion</div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-logo">喜宝</div>
+      <div class="brand-name">HiPP</div>
+      <div class="brand-type" data-en="Lifestyle · KOL Campaign" data-cn="生活方式 · KOL合作">Lifestyle · KOL Campaign</div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-logo">比亚迪</div>
+      <div class="brand-name">BYD</div>
+      <div class="brand-type" data-en="Brand Campaign · Auto" data-cn="品牌合作 · 汽车">Brand Campaign · Auto</div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-logo">元宝</div>
+      <div class="brand-name">Yuanbao AI</div>
+      <div class="brand-type" data-en="Tech · Sponsored Content" data-cn="科技 · 赞助内容">Tech · Sponsored Content</div>
     </div>
   </div>
 </section>
@@ -900,7 +922,7 @@
 <section class="contact" id="contact">
   <p class="section-label" data-en="Get In Touch" data-cn="联系我">Get In Touch</p>
   <h2 class="section-title" data-en="Let's Work Together" data-cn="期待与你合作">Let's Work Together</h2>
-  <p class="contact-sub">zhangmengxue0716@gmail.com</p>
+  <p class="contact-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d37252c232a2028232a3538287d7a7c7b0d2a202c2421632e2220">[email&#160;protected]</a></p>
   <div class="contact-form">
     <input type="text" data-en-placeholder="Your Name" data-cn-placeholder="你的名字" placeholder="Your Name">
     <input type="email" data-en-placeholder="Email" data-cn-placeholder="邮件地址" placeholder="Email">
@@ -919,7 +941,7 @@
   © 2026 Monica · monicamarketing.com · All rights reserved
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
   let currentLang = 'en';
 
@@ -940,11 +962,4 @@
     document.documentElement.lang = isCn ? 'zh' : 'en';
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+  const observer = new IntersectionObser
